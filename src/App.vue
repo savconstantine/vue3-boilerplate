@@ -1,12 +1,12 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
-import LogoSVG from './assets/konstantinsavusia.svg?component'
+import KonstantinSavusiaLogoSVG from './assets/konstantinsavusia.svg?component'
 </script>
 
 <template>
   <header>
-    <LogoSVG alt="Vite logo" class="logo" />
+    <KonstantinSavusiaLogoSVG alt="Konstantin Savusia" class="logo" />
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
