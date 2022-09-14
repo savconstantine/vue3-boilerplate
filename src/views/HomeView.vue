@@ -1,9 +1,9 @@
 <script setup>
-import TheWelcome from '@/components/TheWelcome.vue'
+import PrettyComponent from '@/components/PrettyComponent.vue';
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <PrettyComponent msg="Pretty component!" /> 
   </main>
 </template>
