@@ -6,10 +6,12 @@ import Footer from "./components/Footer.vue";
 
 <template>
   <Header />
-  <RouterView v-slot="{ Component }">
-    <transition name="fade" mode="out-in">
-      <component :is="Component" />
-    </transition>
-  </RouterView>
+  <main class="max-w-screen-lg mx-auto">
+    <RouterView v-slot="{ Component }">
+      <transition name="fade" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </RouterView>
+  </main>
   <Footer />
 </template>

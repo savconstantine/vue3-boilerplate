@@ -3,7 +3,7 @@ import PrettyComponent from '@/components/PrettyComponent.vue';
 </script>
 
 <template>
-  <main>
-    <PrettyComponent msg="Pretty component!" /> 
-  </main>
+  <div>
+    <PrettyComponent msg="Pretty component!" />
+  </div>
 </template>
