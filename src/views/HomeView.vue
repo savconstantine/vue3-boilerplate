@@ -1,5 +1,5 @@
 <script setup>
-import PrettyComponent from '@/components/PrettyComponent.vue';
+import PrettyComponent from "@/components/PrettyComponent.vue";
 </script>
 
 <template>
