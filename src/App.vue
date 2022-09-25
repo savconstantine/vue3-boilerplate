@@ -1,17 +1,32 @@
 <script setup>
+import { ref } from "vue";
 import { RouterView } from "vue-router";
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
+
+
+let isDark = ref(true);
+
+isDark.value = localStorage.getItem("darkMode") == "true";
+
+function changeDarkLightMode() {
+  isDark.value = !isDark.value;
+  localStorage.setItem("darkMode", isDark.value);
+}
 </script>
 
 <template>
-  <Header />
-  <main class="max-w-screen-lg mx-auto">
-    <RouterView v-slot="{ Component }">
-      <transition name="fade" mode="out-in">
-        <component :is="Component" />
-      </transition>
-    </RouterView>
-  </main>
-  <Footer />
+  <div :class="isDark ? 'dark' : ''">
+    <div class="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 min-h-screen flex flex-col justify-between">
+      <Header @toggleDarkMode="changeDarkLightMode" :isDark="isDark" />
+      <main class="max-w-screen-lg mx-auto">
+        <RouterView v-slot="{ Component }">
+          <transition name="fade" mode="out-in">
+            <component :is="Component" />
+          </transition>
+        </RouterView>
+      </main>
+      <Footer />
+    </div>
+  </div>
 </template>

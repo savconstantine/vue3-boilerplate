@@ -1,8 +1,27 @@
+<script setup>
+import MoonSvg from "@/assets/dark-light-mode/moon.svg?component";
+import SunSvg from "@/assets/dark-light-mode/sun.svg?component";
+import { ref } from "vue";
+
+const props = defineProps({
+  isDark: {
+    type: Boolean,
+    required: true
+  },
+});
+
+const emits = defineEmits(["toggleDarkMode"]);
+
+let isOpen = false;
+</script>
+
 <template>
   <header
-    class="bg-gray-100 dark:bg-gray-800 sm:px-4 sm:py-3 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]"
+    class="bg-gray-100 dark:bg-gray-700 sm:px-4 sm:py-3 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]"
   >
-    <div class="max-w-screen-lg mx-auto sm:flex sm:justify-between sm:items-center">
+    <div
+      class="max-w-screen-lg mx-auto sm:flex sm:justify-between sm:items-center"
+    >
       <div class="flex items-center justify-between px-4 py-3 sm:p-0">
         <div>
           <h1
@@ -46,17 +65,22 @@
           to="/about"
           >About</RouterLink
         >
+        <div class="flex items-center justify-center sm:ml-4">
+          <button
+            @click="emits('toggleDarkMode')"
+            class="flex items-center justify-center w-8 h-8 rounded-full focus:outline-none"
+          >
+          <transition name="fade" mode="out-in">
+            <template v-if="props.isDark">
+              <SunSvg class="w-4" />
+            </template>
+            <template v-else>
+              <MoonSvg class="w-4" />
+            </template>
+          </transition>
+          </button>
+        </div>
       </nav>
     </div>
   </header>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      isOpen: false,
-    };
-  },
-};
-</script>
