@@ -28,7 +28,7 @@ let isDark = ref(hasDarkModeSetted());
 </script>
 
 <template>
-  <div :class="isDark ? 'dark' : ''">
+  <div :class="isDark ? 'dark' : ''" class="antialiased">
     <div
       class="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 min-h-screen flex flex-col justify-between"
     >
